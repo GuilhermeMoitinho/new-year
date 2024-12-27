@@ -17,7 +17,7 @@
             <input type="text" id="senderName" placeholder="Seu nome aqui..." required>
             
             <label for="receiverName">Nome do Destinatário:</label>
-            <input type="text" id="receiverName" placeholder="Nome do destinatário..." required>
+            <input type="text" id="receiverName" placeholder="Envie pra uma pessoa útil...." required>
             
             <label for="imageUrl">Imagem (opcional):</label>
             <input type="text" id="imageUrl" placeholder="URL da imagem (opcional)">
@@ -28,12 +28,13 @@
         <div id="linkContainer" class="hidden">
             <p>Compartilhe este link com sua mensagem personalizada:</p>
             <input type="text" id="generatedLink" readonly>
-            <a id="whatsappLink" target="_blank" class="button">Enviar pelo WhatsApp</a>
+            <a id="whatsappLink" target="_blank" class="button">mandar pro zap</a>
         </div>
 
         <div id="recipientMessage" class="hidden">
-            <h1 id="recipientMessageText"></h1>
+            <h1 style="font-size: medium;" id="recipientMessageText"></h1>
             <p id="recipientSubMessage"></p>
+            <p id="final-message"></p>
             <p id="countdownTimer"></p>
             <button id="createOwnMessage">Faça o seu também!</button>
         </div>

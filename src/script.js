@@ -12,16 +12,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const recipientMessage = document.getElementById("recipientMessage");
     const recipientMessageText = document.getElementById("recipientMessageText");
     const recipientSubMessage = document.getElementById("recipientSubMessage");
+    const finalMessage = document.getElementById("final-message");
     const createOwnMessageButton = document.getElementById("createOwnMessage");
     const countdownTimer = document.getElementById("countdownTimer");
 
+    const finalMessages = [
+        "Ano Novo, vida nova... ou apenas mais uma desculpa para não fazer nada de novo.",
+        "2025 está chegando! Vamos fingir que vamos fazer algo diferente... até 1º de janeiro, pelo menos.",
+        "Meta para 2025: mais risadas, menos arrependimentos.",
+        "A virada chegou, e as promessas também. Vamos ignorá-las juntos, como sempre fazemos.",
+        "Se a vida te der limões em 2025, ignore os conselhos motivacionais e faça uma boa margarita com eles.",
+        "Que em 2025 você tenha a coragem de tentar, ou pelo menos a habilidade de se distrair bem o suficiente para não notar o fracasso."
+    ];
+    
+
     if (senderName && receiverName) {
-        dynamicMessage.textContent = `🎆 Feliz Ano Novo, ${receiverName}! 🎆`;
-        recipientMessageText.textContent = `Mensagem especial de ${senderName} para você!`;
-        recipientSubMessage.textContent = `Que 2024 seja incrível para você, ${receiverName}!`;
-        
-        const finalMessage = "Que o novo ano traga muita felicidade, saúde e sucesso para todos nós. Que possamos conquistar nossos sonhos e espalhar amor por onde passarmos.";
-        recipientSubMessage.textContent += ` ${finalMessage}`;
+        dynamicMessage.textContent = `🎆 ${receiverName}, parabéns por sobreviver a 2024! 🎆`;
+        recipientMessageText.textContent = `Você recebeu uma mensagem de ${senderName}, que provavelmente está se enchendo de comida agora.`;
+        recipientSubMessage.textContent = `Espero que 2025 seja tão bom quanto ouvir Zé Felipe e Oruam no café da manhã, ${receiverName}!`;
+
+        const randomMessage = finalMessages[Math.floor(Math.random() * finalMessages.length)];
+        finalMessage.textContent += `${randomMessage}`;
 
         if (imageUrl) {
             celebrationImage.src = imageUrl;
@@ -44,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const inputImageUrl = document.getElementById("imageUrl").value.trim();
 
             if (!inputSenderName || !inputReceiverName) {
-                alert("Por favor, insira o nome do remetente e do destinatário.");
+                alert("Tá com preguiça de preencher? Bora, só mais um esforço!");
                 return;
             }
 
@@ -53,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             generatedLink.value = customLink;
             whatsappLink.href = `https://wa.me/?text=${encodeURIComponent(
-                "Veja minha mensagem de Ano Novo personalizada aqui: " + customLink
+                "Olha, prometo que não é golpe: " + customLink
             )}`;
             linkContainer.classList.remove("hidden");
         });
@@ -66,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const timeLeft = newYearDate - now;
 
             if (timeLeft <= 0) {
-                countdownTimer.textContent = "Feliz Ano Novo!";
+                countdownTimer.textContent = "🎉 Finalmente 2025 chegou, mas você ainda tá de pijama. 🎉";
                 return;
             }
 
@@ -75,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            countdownTimer.textContent = `Contagem Regressiva para 01/01/2025: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            countdownTimer.textContent = `⏳ Tá chegando! Faltam ${days}d ${hours}h ${minutes}m ${seconds}s para 2025!`;
         }, 1000);
     }
 
