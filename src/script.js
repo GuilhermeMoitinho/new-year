@@ -80,6 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     createOwnMessageButton.addEventListener("click", () => {
-        window.location.href = window.location.origin + '/src';
+        window.location.href = window.location.origin + '/';
     });
 });
